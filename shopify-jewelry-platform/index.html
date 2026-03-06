@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify Jewelry Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <h1>Jewelry SaaS</h1>
+      <p>Shopify Product Studio</p>
+      <nav>
+        <a href="#product-generator">Product Generator</a>
+        <a href="#variant-builder">Variant Builder</a>
+        <a href="#media-upload">Media Upload</a>
+        <a href="#bulk-generator">Bulk Generator</a>
+        <a href="#csv-export">CSV Export</a>
+        <a href="#shopify-upload">Shopify Upload</a>
+        <a href="#history">Product History</a>
+        <a href="#preview">Product Preview</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard">
+      <header class="dashboard-header card">
+        <h2>Silver Jewelry Product Platform</h2>
+        <p>Generate, preview, export, and upload products to Shopify with full variant and media support.</p>
+        <div id="statusBanner" class="status-banner">Ready</div>
+      </header>
+
+      <section id="product-generator" class="card">
+        <h3>Product Generator</h3>
+        <form id="productForm" class="grid-form">
+          <label>Product Title <input name="title" required /></label>
+          <label>Vendor <input name="vendor" value="Silver Studio" /></label>
+          <label>Product Category <input name="category" placeholder="Jewelry" /></label>
+          <label>Product Type <input name="productType" value="Ring" /></label>
+          <label>Tags <input name="tags" placeholder="silver, ring, women" /></label>
+          <label>Price <input name="price" type="number" min="0" step="0.01" value="99.00" /></label>
+          <label>Compare At Price <input name="compareAtPrice" type="number" min="0" step="0.01" value="129.00" /></label>
+          <label>SKU <input name="sku" value="SILVER-RING" /></label>
+          <label>Inventory Quantity <input name="inventory" type="number" min="0" value="50" /></label>
+          <label>Weight (grams) <input name="weight" type="number" min="0" step="0.1" value="4.5" /></label>
+          <label>SEO Title <input name="seoTitle" value="925 Sterling Silver Jewelry" /></label>
+          <label>SEO Description <input name="seoDescription" value="Premium silver jewelry for modern shoppers." /></label>
+          <label class="full">Description (HTML)
+            <textarea name="description" rows="4"><p>Elegant 925 sterling silver jewelry crafted for everyday luxury.</p></textarea>
+          </label>
+        </form>
+      </section>
+
+      <section id="variant-builder" class="card">
+        <h3>Variant Builder</h3>
+        <div class="variant-grid">
+          <div>
+            <h4>Color</h4>
+            <div id="colorSwatches" class="swatches"></div>
+          </div>
+          <div>
+            <h4>Size</h4>
+            <div id="sizeButtons" class="sizes"></div>
+          </div>
+        </div>
+        <p id="variantCount">0 variants generated</p>
+      </section>
+
+      <section id="media-upload" class="card">
+        <h3>Media Upload</h3>
+        <div class="media-grid">
+          <label>Upload Images/Videos
+            <input id="mediaFiles" type="file" accept="image/*,video/*" multiple />
+          </label>
+          <label>Paste Image URLs (one per line)
+            <textarea id="mediaUrls" rows="4" placeholder="https://example.com/image.jpg"></textarea>
+          </label>
+        </div>
+        <ul id="mediaList" class="media-list"></ul>
+      </section>
+
+      <section id="bulk-generator" class="card">
+        <h3>Bulk Product Generator</h3>
+        <div class="bulk-controls">
+          <label>Base Title <input id="bulkTitle" value="Silver Floral Ring" /></label>
+          <label>Quantity
+            <select id="bulkQuantity">
+              <option value="10">10</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </label>
+          <button id="generateBulkBtn" type="button">Generate Bulk Products</button>
+        </div>
+        <p id="bulkSummary">No bulk products generated yet.</p>
+      </section>
+
+      <section id="csv-export" class="card action-row">
+        <h3>CSV Export</h3>
+        <button id="exportCsvBtn" type="button">Export Shopify CSV</button>
+      </section>
+
+      <section id="shopify-upload" class="card action-row">
+        <h3>Shopify Upload</h3>
+        <button id="uploadShopifyBtn" type="button">Upload Product to Shopify</button>
+      </section>
+
+      <section id="history" class="card">
+        <h3>Product History</h3>
+        <ul id="historyList"></ul>
+      </section>
+
+      <section id="preview" class="card">
+        <h3>Product Preview</h3>
+        <article id="previewCard" class="preview-card"></article>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
